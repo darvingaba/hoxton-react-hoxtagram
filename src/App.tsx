@@ -10,7 +10,6 @@ type Post = {
 
 function App() {
   const [images, setImages] = useState<Post[]>([])
-
   
   useState(() => {
     fetch("http://localhost:3005/images") 
@@ -23,15 +22,15 @@ function App() {
       <img className="logo" src="assets/hoxtagram-logo.png" />
 
     <section className="image-container">
-      {images.map(title => (
+      {images.map(image => (
         
       <article className="image-card">
-        <h2 className="title">Title of image goes here</h2>
+        <h2 className="title">{image.title}</h2>
         <img src={ 
-          title.image
+          image.image
         } className="image" />
         <div className="likes-section">
-          <span className="likes">0 likes</span>
+          <span className="likes">{image.likes}</span>
           <button className="like-button">♥</button>
         </div>
         <ul className="comments">
