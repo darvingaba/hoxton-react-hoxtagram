@@ -145,3 +145,24 @@ img {
 .comment-form.image-card .comment-button {
   font-size: 1rem;
 }
+.inputPlaceholder{
+  color: #000000dd;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 5px;
+  border: 1px solid #00000020;
+  margin-left: 1rem;
+}
+.comment-button{
+  background-color: #00000020;
+  color: #ffffff;
+  border: none;
+  padding: 5px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 300ms;
+  margin-left: 1rem;
+}
