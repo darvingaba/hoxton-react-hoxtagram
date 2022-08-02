@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import {Article} from './components/Article'
 
 type Post = {
   comments: any
@@ -73,43 +74,50 @@ function App() {
 
       <section className="image-container">
         {images.map((image) => (
-          <article className="image-card">
-            <h2 className="title">{image.title}</h2>
-            <img src={image.image} className="image" />
-            <div className="likes-section">
-              <span className="likes">Likes {image.likes}</span>
-              <button onClick={() => onLike(image.id)} className="like-button">
-                ♥
-              </button>
-            </div>
+          <Article 
+            key={image.id}
+            image={image}
+            onLike={onLike}
+            addComment={addComment}
+            comments={comments}
+          />
+          // <article className="image-card">
+          //   <h2 className="title">{image.title}</h2>
+          //   <img src={image.image} className="image" />
+          //   <div className="likes-section">
+          //     <span className="likes">Likes {image.likes}</span>
+          //     <button onClick={() => onLike(image.id)} className="like-button">
+          //       ♥
+          //     </button>
+          //   </div>
 
-            <div className="comments-section">
-              <form
-              // adds comment to the database but has no value comment.content = ""
-              // fix this
-                onSubmit={(event) => {
-                  event.preventDefault();
-                  addComment((event.target as HTMLInputElement).value);
-                  (event.target as HTMLInputElement).value = "";
-                }}
-              action="#">
-                <input
-                className='inputPlaceholder' type="text" placeholder="Add a comment" />
-                <button
-                className="comment-button">
-                  Add Comment
-                </button>
+          //   <div className="comments-section">
+          //     <form
+          //     // adds comment to the database but has no value comment.content = ""
+          //     // fix this
+          //       onSubmit={(event) => {
+          //         event.preventDefault();
+          //         addComment((event.target as HTMLInputElement).value);
+          //         (event.target as HTMLInputElement).value = "";
+          //       }}
+          //     action="#">
+          //       <input
+          //       className='inputPlaceholder' type="text" placeholder="Add a comment" />
+          //       <button
+          //       className="comment-button">
+          //         Add Comment
+          //       </button>
 
-              </form>
-            </div>
+          //     </form>
+          //   </div>
 
-            <ul className="comments">
-              {comments.map((comment) => (
-                <li className="comment">{comment.content}</li>
-              ))}
+          //   <ul className="comments">
+          //     {comments.map((comment) => (
+          //       <li className="comment">{comment.content}</li>
+          //     ))}
 
-            </ul>
-          </article>
+          //   </ul>
+          // </article>
         ))}
       </section>
     </div>
